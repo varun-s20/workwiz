@@ -5,7 +5,7 @@ import { Flex, Image, Text } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import { AuroraBackground } from "@/components/ui/aurora-background";
 
-const words = `Connect with jobs tailored to your skills and experience, effortlessly streamlining your job search and hiring process.
+const words = `Effortlessly connect with opportunities tailored to your skills and preferences. With cutting-edge AI, resume parsing, and personalized recommendations, WorkWiz streamlines your job search and revolutionizes hiring for employers. Discover your future, today!
 `;
 
 export function CardHoverEffectDemo() {
@@ -21,7 +21,7 @@ export function CardHoverEffectDemo() {
         }}
         className="relative flex flex-col gap-4 items-center justify-center px-4"
       >
-        <div className="max-w-4xl mx-auto px-8" justifyContent="center">
+        <div className="max-w-4xl mx-auto px-6" justifyContent="center">
           <Text className="font-bold text-7xl py-8 text-slate-900 flex justify-center -ml-8">
             <Image
               src={"/workwizlogo.png"}
