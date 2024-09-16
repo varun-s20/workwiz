@@ -1,8 +1,7 @@
-"use client";
 import Link from "next/link";
 import React from "react";
 import { Box, Image } from "@chakra-ui/react";
-import { ButtonComponent } from "./Button";
+import NavbarRoutes from "./NavbarRoutes";
 
 const Navbar = () => {
   return (
@@ -12,9 +11,9 @@ const Navbar = () => {
           <Image src="/workwiz.png" className="h-[54px]" alt="WorkWiz Logo" />
         </Link>
         <div className="flex md:order-2 space-x-3 md:space-x-0 ">
-          <ButtonComponent buttonText="Get in touch" />
+          <NavbarRoutes />
         </div>
-        <div className="items-center justify-between hidden w-full md:flex md:w-auto md:order-1">
+        {/* <div className="items-center justify-between hidden w-full md:flex md:w-auto md:order-1">
           <ul className="flex flex-col p-4 md:p-0 mt-4 font-medium rounded-lg md:space-x-8  md:flex-row md:mt-0">
             <li>
               <a
@@ -50,7 +49,7 @@ const Navbar = () => {
               </a>
             </li>
           </ul>
-        </div>
+        </div> */}
       </div>
     </nav>
   );
