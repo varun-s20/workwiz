@@ -24,8 +24,8 @@ const BasicPanel = ({
       <Box
         component="form"
         sx={{
-          '& > :not(style)': { margin: '0.5rem 0' },
-          backgroundColor: 'rgb(231 238 250)',
+          '& > :not(style)': { margin: '0.5rem 0.5rem' },
+          backgroundColor: 'white',
           display: 'flex',
           flexDirection: 'column',
         }}

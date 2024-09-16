@@ -13,7 +13,7 @@ export const GLOBAL_MUI_THEME = createTheme({
       700: '#3C5268',
       800: '#2E4052',
       900: '#1C2C3A',
-    },
+    }, 
     primary: {
       main: '#2E4052',
     },
@@ -50,3 +50,4 @@ declare module '@mui/material/styles' {
     resume?: PaletteOptions['grey'];
   }
 }
+

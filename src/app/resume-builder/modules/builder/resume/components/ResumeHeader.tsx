@@ -9,8 +9,7 @@ const ResumeHeader = () => {
   const templateName = useTemplates((state) => state.activeTemplate.name);
 
   return (
-    <div className="flex items-center justify-between">
-      <ResumeTitle title={templateName} />
+    <div className="flex float-right">
       <ResumeController zoomIn={zoomIn} zoomOut={zoomOut} resetZoom={resetZoom} />
     </div>
   );

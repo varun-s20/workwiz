@@ -1,41 +1,43 @@
-import create from 'zustand';
-import { persist } from 'zustand/middleware';
-import produce  from 'immer';
-import resumeData from '../helpers/constants/resume-data.json';
+import { create } from "zustand";
+import { persist } from "zustand/middleware";
+import { produce } from "immer";
+import resumeData from "../helpers/constants/resume-data.json";
 
 /**
  * Add new education item.
  * @param {Function} set - Zustand set function
  * @returns {Function} - Function to add education
  */
-const addEducation = (set) => ({
-  institution,
-  studyType,
-  area,
-  // startDate,
-  isStudyingHere,
-  // endDate,
-  id,
-  url,
-  score,
-  courses,
-}) =>
-  set(
-    produce((state) => {
-      state.academics.push({
-        institution,
-        studyType,
-        area,
-        // startDate,
-        isStudyingHere,
-        // endDate,
-        id,
-        url,
-        courses,
-        score,
-      });
-    })
-  );
+const addEducation =
+  (set) =>
+  ({
+    institution,
+    studyType,
+    area,
+    // startDate,
+    isStudyingHere,
+    // endDate,
+    id,
+    url,
+    score,
+    courses,
+  }) =>
+    set(
+      produce((state) => {
+        state.academics.push({
+          institution,
+          studyType,
+          area,
+          // startDate,
+          isStudyingHere,
+          // endDate,
+          id,
+          url,
+          courses,
+          score,
+        });
+      })
+    );
 
 /**
  * Remove an education item by index.
@@ -44,7 +46,9 @@ const addEducation = (set) => ({
  */
 const removeEducation = (set) => (index) =>
   set((state) => ({
-    academics: state.academics.slice(0, index).concat(state.academics.slice(index + 1)),
+    academics: state.academics
+      .slice(0, index)
+      .concat(state.academics.slice(index + 1)),
   }));
 
 /**
@@ -130,6 +134,6 @@ export const useEducations = create(
       onmovedown: onMoveDown(set),
       updateEducation: updateEducation(set),
     }),
-    { name: 'education' }
+    { name: "education" }
   )
 );

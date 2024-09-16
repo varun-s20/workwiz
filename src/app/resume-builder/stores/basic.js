@@ -1,6 +1,6 @@
-import create from 'zustand';
-import { persist } from 'zustand/middleware';
-import resumeData from '../helpers/constants/resume-data.json';
+import { create } from "zustand";
+import { persist } from "zustand/middleware";
+import resumeData from "../helpers/constants/resume-data.json";
 
 /**
  * Handle text change and update basic details.
@@ -15,6 +15,6 @@ export const useBasicDetails = create(
       values: resumeData.basics,
       reset: onChangeText(set),
     }),
-    { name: 'basic' }
+    { name: "basic" }
   )
 );

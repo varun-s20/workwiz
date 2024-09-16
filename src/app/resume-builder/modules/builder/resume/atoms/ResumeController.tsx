@@ -55,7 +55,7 @@ export default ResumeController;
 function TooltipRenderer({ title, children }: { title: string; children: ReactNode }) {
   return (
     <Tooltip title={title}>
-      <div className="w-auto h-auto flex">{children}</div>
+      <div className="w-auto h-auto flex bg-gray-100 p-1 rounded-full">{children}</div>
     </Tooltip>
   );
 }

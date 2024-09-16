@@ -17,7 +17,6 @@ import Link from 'next/link';
 import { NavMenuItem } from './components/MenuItem';
 import { PrintResume } from './components/PrintResume';
 import { TemplateSelect } from './components/TemplateSelect';
-import { ThemeSelect } from './components/ThemeSelect';
 import { Toast } from '../../../helpers/common/atoms/Toast';
 import exportFromJSON from 'export-from-json';
 import { useActivity } from '../../../stores/activity';
@@ -25,7 +24,7 @@ import { useAwards } from '../../../stores/awards';
 import { useBasicDetails } from '../../../stores/basic';
 import { useEducations } from '../../../stores/education';
 import { useExperiences } from '../../../stores/experience';
-import { useVoluteeringStore } from '../../../stores/volunteering';
+import { useVolunteeringStore } from '../../../stores/volunteering';
 
 const TOTAL_TEMPLATES_AVAILABLE = Object.keys(AVAILABLE_TEMPLATES).length;
 
@@ -43,7 +42,7 @@ const NavBarLayout = () => {
       work: useExperiences.getState().experiences,
       education: useEducations.getState().academics,
       awards: useAwards.getState().awards,
-      volunteer: useVoluteeringStore.getState().volunteeredExps,
+      volunteer: useVolunteeringStore.getState().volunteeredExps,
       skills: {
         languages: useLanguages.getState().get(),
         frameworks: useFrameworks.getState().get(),
@@ -110,7 +109,7 @@ const NavBarLayout = () => {
         useTools.getState().reset(tools);
         useExperiences.getState().reset(work);
         useEducations.getState().reset(education);
-        useVoluteeringStore.getState().reset(volunteer);
+        useVolunteeringStore.getState().reset(volunteer);
         useAwards.getState().reset(awards);
         useActivity.getState().reset(activities);
         setOpenToast(true);
@@ -119,50 +118,21 @@ const NavBarLayout = () => {
   }, []);
 
   return (
-    <nav className="h-14 w-full bg-resume-800 relative flex py-2.5 pl-5 pr-4 items-center shadow-level-8dp z-20 print:hidden">
+    <nav className="h-14 w-full bg-resume-800 relative flex py-2.5 pl-5 pr-4 items-center shadow-level-8dp z-20 print:hidden mt-4 ">
       <Link href="/">
-        <Image src={'/workwiz.png'} alt="logo" className='h-[54px] mt-4'/>
+        <Image src={'/workwiz.png'} alt="logo" className='h-[54px]'/>
       </Link>
-      <div className="flex-auto flex justify-between items-center ml-5">
+      <div className="flex-auto flex justify-between items-center ml-8">
         <NavBarMenu>
           <NavMenuItem
             caption={`Templates (${TOTAL_TEMPLATES_AVAILABLE})`}
             popoverChildren={<TemplateSelect />}
           />
-          <NavMenuItem caption="Colours" popoverChildren={<ThemeSelect />} />
         </NavBarMenu>
         <NavBarActions>
-          <StyledButton variant="text" onClick={exportResumeData}>
-            Export
-          </StyledButton>
-          <StyledButton
-            variant="text"
-            onClick={() => {
-              if (fileInputRef.current) {
-                const fileElement = fileInputRef.current as HTMLInputElement;
-                fileElement.click();
-              }
-            }}
-          >
-            Import{' '}
-            <input
-              type="file"
-              hidden
-              ref={fileInputRef}
-              accept="application/json"
-              onChange={handleFileChange}
-            />
-          </StyledButton>
           <PrintResume />
         </NavBarActions>
       </div>
-      <Toast
-        open={openToast}
-        onClose={() => {
-          setOpenToast(false);
-        }}
-        content={'Resume data was successfully imported.'}
-      />
     </nav>
   );
 };

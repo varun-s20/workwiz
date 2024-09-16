@@ -1,7 +1,7 @@
-import create from 'zustand';
-import { persist } from 'zustand/middleware';
-import  produce  from 'immer';
-import resumeData from '../helpers/constants/resume-data.json';
+import { create } from "zustand";
+import { persist } from "zustand/middleware";
+import { produce } from "immer";
+import resumeData from "../helpers/constants/resume-data.json";
 
 /**
  * Set all activities
@@ -51,6 +51,6 @@ export const useActivity = create(
       updateAchievements: updateAchievements(set),
       updateInvolvements: updateInvolvements(set),
     }),
-    { name: 'activities' }
+    { name: "activities" }
   )
 );

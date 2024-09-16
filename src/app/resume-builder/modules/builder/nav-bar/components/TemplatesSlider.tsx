@@ -11,7 +11,7 @@ import { useTemplates } from '../../../../stores/useTemplate';
 
 export const TemplateSlider = () => {
   const templateIndex = useTemplates((state) => state.activeTemplate.id);
-
+  console.log("Template Index: ", templateIndex);
   const targetElementRef = useRef<HTMLElement | null>(null);
   const splideInstanceRef = useRef<Splide | null>(null);
 
@@ -19,7 +19,7 @@ export const TemplateSlider = () => {
     const targetElement = targetElementRef.current;
     if (targetElement) {
       splideInstanceRef.current = new SplideCore(targetElement, {
-        perPage: 2,
+        perPage: 1,
         pagination: false,
         gap: '0px',
         width: '100%',
@@ -37,40 +37,26 @@ export const TemplateSlider = () => {
 
   const onChangeTemplate = (templateId: string) => {
     useTemplates.getState().setTemplate(AVAILABLE_TEMPLATES[templateId]);
+    console.log("inside on change template: ",AVAILABLE_TEMPLATES[templateId])
   };
 
   return (
     <div>
-      <Global
-        styles={{
-          '.splide__arrow svg': {
-            fill: '#000000',
-          },
-          '.splide__arrow--prev': {
-            backgroundColor: 'transparent',
-          },
-          '.splide__arrow--next': {
-            backgroundColor: 'transparent',
-          },
-          '.splide__arrow--prev:disabled': {
-            cursor: 'not-allowed',
-          },
-          '.splide__arrow--next:disabled': {
-            cursor: 'not-allowed',
-          },
-        }}
-      />
-      <section className="splide mt-[26px] mb-[32px] px-[40px]" ref={targetElementRef}>
+      <section className="splide my-8 px-8" ref={targetElementRef}>
         <div className="splide__track">
           <ul className="splide__list">
             {Object.keys(AVAILABLE_TEMPLATES).map((templateKey) => {
               const template = AVAILABLE_TEMPLATES[templateKey];
+              console.log("Template ye hai: ", template)
               const isActive = template.id === templateIndex;
+              console.log("Active: ", isActive)
               return (
                 <TemplateSlide
                   key={template.id}
                   isActive={isActive}
-                  {...template}
+                  id={template.id}
+                  name={template.name}
+                  thumbnail={template.thumbnail}
                   onChangeTemplate={onChangeTemplate}
                 />
               );
@@ -96,20 +82,21 @@ export const TemplateSlide = ({
   onChangeTemplate: (id: string) => void;
 }) => {
   return (
-    <li className="splide__slide flex justify-center">
+    <li className="splide__slide flex justify-center px-2">
       <div
-        className={`h-[255px] w-[180px] rounded border hover:cursor-pointer overflow-hidden relative ${
-          isActive ? 'border-resume-800' : 'border-resume-200'
+        className={`h-64 w-48 rounded border hover:cursor-pointer overflow-hidden relative ${
+          isActive ? 'border-2 border-[#2E4052]' : 'border-[#A8B9CC]'
         }`}
         onClick={() => {
           onChangeTemplate(id);
+          {console.log("On Click id: ",id)}
         }}
       >
         <Image src={thumbnail} alt={name} layout="fill" />
 
         {isActive && (
-          <div className="absolute top-1 right-1 bg-white rounded-full">
-            <Image src={'/icons/selected-tick.svg'} alt="logo" width="24" height="24" />
+          <div className="absolute top-1 left-2 bg-white rounded-full">
+            <Image src={'/icons/selected-tick.svg'} alt="logo" width="24" height="20" />
           </div>
         )}
       </div>

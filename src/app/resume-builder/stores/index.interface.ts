@@ -48,8 +48,8 @@ export interface IWorkIntrf {
   name: string;
   position: string;
   url: string;
-  // startDate: dayjs.Dayjs;
-  // endDate: dayjs.Dayjs;
+  startDate: dayjs.Dayjs;
+  endDate: dayjs.Dayjs;
   summary: string;
   years: string;
   highlights: string[];

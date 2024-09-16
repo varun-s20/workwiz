@@ -1,41 +1,43 @@
-import create from 'zustand';
-import { persist } from 'zustand/middleware';
-import produce from 'immer';
-import resumeData from '../helpers/constants/resume-data.json';
+import { create } from "zustand";
+import { persist } from "zustand/middleware";
+import { produce } from "immer";
+import resumeData from "../helpers/constants/resume-data.json";
 
 /**
  * Add a new experience item.
  * @param {Function} set - Zustand set function
  * @returns {Function} - Function to add experience
  */
-const addExperience = (set) => ({
-  name,
-  position,
-  // startDate,
-  isWorkingHere,
-  // endDate,
-  years,
-  summary,
-  id,
-  url = '',
-  highlights = [],
-}) =>
-  set(
-    produce((state) => {
-      state.experiences.push({
-        id,
-        name,
-        position,
-        // startDate,
-        isWorkingHere,
-        // endDate,
-        summary,
-        url,
-        years,
-        highlights,
-      });
-    })
-  );
+const addExperience =
+  (set) =>
+  ({
+    name,
+    position,
+    startDate,
+    isWorkingHere,
+    endDate,
+    years,
+    summary,
+    id,
+    url = "",
+    highlights = [],
+  }) =>
+    set(
+      produce((state) => {
+        state.experiences.push({
+          id,
+          name,
+          position,
+          startDate,
+          isWorkingHere,
+          endDate,
+          summary,
+          url,
+          years,
+          highlights,
+        });
+      })
+    );
 
 /**
  * Remove an experience item by index.
@@ -44,7 +46,9 @@ const addExperience = (set) => ({
  */
 const removeExperience = (set) => (index) =>
   set((state) => ({
-    experiences: state.experiences.slice(0, index).concat(state.experiences.slice(index + 1)),
+    experiences: state.experiences
+      .slice(0, index)
+      .concat(state.experiences.slice(index + 1)),
   }));
 
 /**
@@ -130,6 +134,6 @@ export const useExperiences = create(
       onmovedown: onMoveDown(set),
       updateExperience: updateExperience(set),
     }),
-    { name: 'experience' }
+    { name: "experience" }
   )
 );

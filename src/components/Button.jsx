@@ -1,7 +1,7 @@
 import { Box, Button, Image } from "@chakra-ui/react";
 import { FiArrowUpRight } from "react-icons/fi";
 
-export const ButtonComponent = ({buttonText}) => {
+export const ButtonComponent = ({ buttonText }) => {
   return (
     <Button
       rounded={"full"}
@@ -24,7 +24,7 @@ export const ButtonComponent = ({buttonText}) => {
         as="span"
         display="flex"
         alignItems="center"
-        justifyContent="center"
+        justifycontent="center"
         bg="white"
         color="black"
         width="28px"

@@ -23,9 +23,8 @@ const EditorLayout = () => {
 
   return (
     <ErrorBoundary>
-      <div className="bg-resume-50 h-full text-resume-800 p-6 overflow-auto relative no-scrollbar shadow-level-4dp">
+      <div className="bg-[#0b0b0f] h-full text-white p-8 overflow-auto relative no-scrollbar shadow-xl">
         {displayElement}
-
         <div className="mt-8">
           <OutlinedButton onClick={resetResumeStore}>Reset all edits</OutlinedButton>
         </div>

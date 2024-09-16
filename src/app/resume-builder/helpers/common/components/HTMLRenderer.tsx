@@ -2,7 +2,6 @@ import React from 'react';
 import parseHtmlStringToHtml, { domToReact } from 'html-react-parser';
 
 import Link from 'next/link';
-import styles from './richtext/jodit.module.css';
 import { useMemo } from 'react';
 
 export const HTMLRenderer = ({ htmlString }: { htmlString: string }) => {
@@ -17,5 +16,5 @@ export const HTMLRenderer = ({ htmlString }: { htmlString: string }) => {
       },
     });
   }, [htmlString]);
-  return <div className={`${styles.richtextRuntimeWrapper} text-xs`}>{parsedElement}</div>;
+  return <div className={`richtextRuntimeWrapper text-xs`}>{parsedElement}</div>;
 };

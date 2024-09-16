@@ -9,7 +9,7 @@ import {Heading} from "@chakra-ui/react"
 
 const BuilderLayout = () => {
   return (
-    <div className="flex flex-col h-screen bg-yellow-200">
+    <div className="flex flex-col h-screen bg-[#0b0b0f] overflow-hidden">
       <NavBarLayout />
       <main className="flex flex-1 max-h-[calc(100vh_-_3.5rem)] print:max-h-fit">
         <div className="flex flex-col flex-1 justify-center bg-custom-grey100 print:bg-white">

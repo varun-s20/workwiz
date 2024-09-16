@@ -4,7 +4,7 @@ import React from "react";
 
 import { LinkPlugin } from './plugins/link';
 
-import styles from './jodit.module.css';
+// import styles from './jodit.module.css';
 
 interface IRichtext {
   label: string;
@@ -58,7 +58,7 @@ export const RichtextEditor = memo(({ label, onChange, value }: IRichtext) => {
   }, [onChange, editorInstanceCreated]);
 
   return (
-    <div className={`${styles.editor_wrapper} mb-4`}>
+    <div className={`editor_wrapper mb-4`}>
       <div
         style={{
           padding: '8px 16px 0px',

@@ -1,21 +1,23 @@
-import create from 'zustand';
-import { persist } from 'zustand/middleware';
-import  produce  from 'immer';
-import resumeData from '../helpers/constants/resume-data.json';
+import { create } from "zustand";
+import { persist } from "zustand/middleware";
+import { produce } from "immer";
+import resumeData from "../helpers/constants/resume-data.json";
 
 // Add a new award to the list
-const addAward = (set) => ({ title, awarder, date, summary, id }) =>
-  set(
-    produce((state) => {
-      state.awards.push({
-        title,
-        awarder,
-        // date,
-        summary,
-        id,
-      });
-    })
-  );
+const addAward =
+  (set) =>
+  ({ title, awarder, date, summary, id }) =>
+    set(
+      produce((state) => {
+        state.awards.push({
+          title,
+          awarder,
+          // date,
+          summary,
+          id,
+        });
+      })
+    );
 
 // Remove an award based on its index
 const removeAward = (set) => (index) =>
@@ -84,6 +86,6 @@ export const useAwards = create(
       onmovedown: onMoveDown(set),
       updateAward: updateAward(set),
     }),
-    { name: 'awards' }
+    { name: "awards" }
   )
 );

@@ -8,6 +8,7 @@ import { HTMLRenderer } from '../../../helpers/common/components/HTMLRenderer';
 import { dateParser } from '../../../helpers/utils';
 import { IExperienceItem } from '../../../stores/experience.interface';
 import React from 'react';
+import { SectionList } from '../atoms/SectionList';
 
 export default function Work({ work }: { work: IExperienceItem[] }) {
   return (
@@ -15,14 +16,20 @@ export default function Work({ work }: { work: IExperienceItem[] }) {
       {work.map((company, index) => (
         <Timeline key={`${company.name}-${index}`} className="p-0 flex-initial text-[1em]">
           <TimelineItem className="before:hidden text-[1em]">
-            <TimelineSeparator>
+            {/* <TimelineSeparator>
               <TimelineDot variant="outlined" color="primary" />
-              {index !== work.length - 1 && <TimelineConnector />}
-            </TimelineSeparator>
-            <TimelineContent>
+              {index !== (work.length - 1) && <TimelineConnector />}
+            </TimelineSeparator> */}
+            <div>
+
+            <SectionList>
+
               <ExperienceHeader work={company} />
+            </SectionList>
               <HTMLRenderer htmlString={company.summary} />
-            </TimelineContent>
+            </div>
+            {/* <TimelineContent>
+            </TimelineContent> */}
           </TimelineItem>
         </Timeline>
       ))}

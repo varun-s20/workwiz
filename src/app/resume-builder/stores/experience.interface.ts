@@ -3,8 +3,8 @@ export interface IExperienceItem {
   name: string;
   position: string;
   url: string;
-  // startDate: string | null;
-  // endDate: string | null;
+  startDate: string | null;
+  endDate: string | null;
   years: string;
   summary: string;
   highlights: string[];

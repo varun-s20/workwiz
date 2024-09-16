@@ -1,6 +1,6 @@
-import create from 'zustand';
-import { persist } from 'zustand/middleware';
-import { SYSTEM_COLORS, CUSTOM_THEME_COLOR } from '../helpers/constants/index';
+import { create } from "zustand";
+import { persist } from "zustand/middleware";
+import { SYSTEM_COLORS, CUSTOM_THEME_COLOR } from "../helpers/constants/index";
 
 /**
  * Zustand store for managing theme settings.
@@ -14,6 +14,6 @@ export const useThemes = create(
         set(() => ({ selectedTheme: theme }));
       },
     }),
-    { name: 'themes' }
+    { name: "themes" }
   )
 );

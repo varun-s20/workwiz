@@ -1,7 +1,9 @@
 import { HTMLRenderer } from '../../../helpers/common/components/HTMLRenderer';
 import { ProfileImage } from '../../../helpers/common/components/ProfileImage';
 import React from 'react';
-import styles from './about.module.css';
+import styles from './about.module.css'; // Ensure the correct relative path
+
+
 
 export default function AboutMe({
   summary,

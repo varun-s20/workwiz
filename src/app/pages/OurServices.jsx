@@ -21,7 +21,7 @@ export function CardHoverEffectDemo() {
         }}
         className="relative flex flex-col gap-4 items-center justify-center px-4"
       >
-        <div className="max-w-4xl mx-auto px-6" justifyContent="center">
+        <div className="max-w-4xl mx-auto px-6" justifycontent="center">
           <Text className="font-bold text-7xl py-8 text-slate-900 flex justify-center -ml-8">
             <Image
               src={"/workwizlogo.png"}

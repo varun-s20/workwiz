@@ -1,19 +1,21 @@
-import create from 'zustand';
-import { persist } from 'zustand/middleware';
-import produce from 'immer';
-import resumeData from '../helpers/constants/resume-data.json';
+import { create } from "zustand";
+import { persist } from "zustand/middleware";
+import { produce } from "immer";
+import resumeData from "../helpers/constants/resume-data.json";
 
 /**
  * Add a skill.
  * @param {Function} set - Zustand set function
  * @returns {Function} - Function to add skill
  */
-const addSkill = (set) => ({ name, level }) =>
-  set(
-    produce((state) => {
-      state.values.push({ name, level });
-    })
-  );
+const addSkill =
+  (set) =>
+  ({ name, level }) =>
+    set(
+      produce((state) => {
+        state.values.push({ name, level });
+      })
+    );
 
 /**
  * Remove a skill by index.
@@ -39,15 +41,14 @@ const setSkills = (set) => (values) => set(() => ({ values }));
  * @param {Function} get - Zustand get function
  * @returns {Function} - Function to get skills
  */
-const getSkills = (get) => () => get().isEnabled ? get().values : [];
+const getSkills = (get) => () => (get().isEnabled ? get().values : []);
 
 /**
  * Set whether the skills are enabled.
  * @param {Function} set - Zustand set function
  * @returns {Function} - Function to set enabled state
  */
-const setIsEnabled = (set) => (isEnabled) =>
-  set(() => ({ isEnabled }));
+const setIsEnabled = (set) => (isEnabled) => set(() => ({ isEnabled }));
 
 /**
  * Get methods for skill state management.
@@ -69,14 +70,14 @@ const getMethods = (set, get) => ({
 export const useLanguages = create(
   persist(
     (set, get) => ({
-      title: 'Languages',
+      title: "Languages",
       hasLevel: true,
       values: resumeData.skills.languages,
       isEnabled: true,
 
       ...getMethods(set, get),
     }),
-    { name: 'languages' }
+    { name: "languages" }
   )
 );
 
@@ -86,14 +87,14 @@ export const useLanguages = create(
 export const useFrameworks = create(
   persist(
     (set, get) => ({
-      title: 'Frameworks',
+      title: "Frameworks",
       hasLevel: true,
       values: resumeData.skills.frameworks,
       isEnabled: true,
 
       ...getMethods(set, get),
     }),
-    { name: 'frameworks' }
+    { name: "frameworks" }
   )
 );
 
@@ -103,14 +104,14 @@ export const useFrameworks = create(
 export const useTechnologies = create(
   persist(
     (set, get) => ({
-      title: 'Technologies',
+      title: "Technologies",
       hasLevel: false,
       values: resumeData.skills.technologies,
       isEnabled: true,
 
       ...getMethods(set, get),
     }),
-    { name: 'technologies' }
+    { name: "technologies" }
   )
 );
 
@@ -120,14 +121,14 @@ export const useTechnologies = create(
 export const useLibraries = create(
   persist(
     (set, get) => ({
-      title: 'Libraries',
+      title: "Libraries",
       hasLevel: false,
       values: resumeData.skills.libraries,
       isEnabled: true,
 
       ...getMethods(set, get),
     }),
-    { name: 'libraries' }
+    { name: "libraries" }
   )
 );
 
@@ -137,14 +138,14 @@ export const useLibraries = create(
 export const useDatabases = create(
   persist(
     (set, get) => ({
-      title: 'Databases',
+      title: "Databases",
       hasLevel: false,
       values: resumeData.skills.databases,
       isEnabled: true,
 
       ...getMethods(set, get),
     }),
-    { name: 'databases' }
+    { name: "databases" }
   )
 );
 
@@ -154,14 +155,14 @@ export const useDatabases = create(
 export const usePractices = create(
   persist(
     (set, get) => ({
-      title: 'Practices',
+      title: "Practices",
       hasLevel: false,
       values: resumeData.skills.practices,
       isEnabled: true,
 
       ...getMethods(set, get),
     }),
-    { name: 'practices' }
+    { name: "practices" }
   )
 );
 
@@ -171,13 +172,13 @@ export const usePractices = create(
 export const useTools = create(
   persist(
     (set, get) => ({
-      title: 'Tools',
+      title: "Tools",
       hasLevel: false,
       values: resumeData.skills.tools,
       isEnabled: true,
 
       ...getMethods(set, get),
     }),
-    { name: 'tools' }
+    { name: "tools" }
   )
 );

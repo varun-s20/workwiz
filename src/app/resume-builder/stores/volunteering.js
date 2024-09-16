@@ -1,34 +1,36 @@
-import create from 'zustand';
-import { persist } from 'zustand/middleware';
-import produce from 'immer';
-import resumeData from '../helpers/constants/resume-data.json';
+import { create } from "zustand";
+import { persist } from "zustand/middleware";
+import { produce } from "immer";
+import resumeData from "../helpers/constants/resume-data.json";
 
 // Define the initial state and actions
-const addVolunteering = (set) => ({
-  organization,
-  position,
-  isVolunteeringNow,
-  // endDate,
-  summary,
-  id,
-  url = '',
-  highlights = [],
-}) =>
-  set(
-    produce((state) => {
-      state.volunteeredExps.push({
-        id,
-        organization,
-        position,
-        // startDate, // Commented out in the TypeScript version
-        isVolunteeringNow,
-        // endDate, // Commented out in the TypeScript version
-        summary,
-        url,
-        highlights,
-      });
-    })
-  );
+const addVolunteering =
+  (set) =>
+  ({
+    organization,
+    position,
+    isVolunteeringNow,
+    // endDate,
+    summary,
+    id,
+    url = "",
+    highlights = [],
+  }) =>
+    set(
+      produce((state) => {
+        state.volunteeredExps.push({
+          id,
+          organization,
+          position,
+          // startDate, // Commented out in the TypeScript version
+          isVolunteeringNow,
+          // endDate, // Commented out in the TypeScript version
+          summary,
+          url,
+          highlights,
+        });
+      })
+    );
 
 const removeVolunteeringExp = (set) => (index) =>
   set((state) => ({
@@ -91,6 +93,6 @@ export const useVolunteeringStore = create(
       onmovedown: onMoveDown(set),
       updatedVolunteeringExp: updatedVolunteeringExp(set),
     }),
-    { name: 'volunteering' }
+    { name: "volunteering" }
   )
 );

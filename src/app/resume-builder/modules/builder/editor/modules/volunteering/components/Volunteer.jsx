@@ -1,21 +1,22 @@
-import React, { ChangeEvent, Fragment, useCallback } from 'react';
-import TextField from '@mui/material/TextField';
-import { DatePicker } from '@mui/x-date-pickers/DatePicker';
-import { useVoluteeringStore } from '../../../../../../stores/volunteering';
-import { SwitchWidget } from '../../../../../../helpers/common/atoms/Switch';
-import { RichtextEditor } from '../../../../../../helpers/common/components/richtext';
-import { DATE_PICKER_FORMAT } from '../../../../../../helpers/constants';
+import React, { ChangeEvent, Fragment, useCallback } from "react";
+import TextField from "@mui/material/TextField";
+import { DatePicker } from "@mui/x-date-pickers/DatePicker";
+import { useVolunteeringStore } from "../../../../../../stores/volunteering";
+import { SwitchWidget } from "../../../../../../helpers/common/atoms/Switch";
+import { RichtextEditor } from "../../../../../../helpers/common/components/richtext";
+import { DATE_PICKER_FORMAT } from "../../../../../../helpers/constants";
 
 const Volunteer = ({ volunteeringInfo, currentIndex }) => {
   const onChangeHandler = useCallback(
     (name, value) => {
       const currentExpInfo = { ...volunteeringInfo };
-      const updatedVolunteeringExp = useVoluteeringStore.getState().updatedVolunteeringExp;
+      const updatedVolunteeringExp =
+        useVolunteeringStore.getState().updatedVolunteeringExp;
       switch (name) {
-        case 'organisation':
+        case "organisation":
           currentExpInfo.organization = value;
           break;
-        case 'role':
+        case "role":
           currentExpInfo.position = value;
           break;
         // case 'startDate':
@@ -23,7 +24,7 @@ const Volunteer = ({ volunteeringInfo, currentIndex }) => {
         //     currentExpInfo.startDate = value;
         //   }
         //   break;
-        case 'isVolunteeringNow':
+        case "isVolunteeringNow":
           currentExpInfo.isVolunteeringNow = value;
           break;
         // case 'endDate':
@@ -31,7 +32,7 @@ const Volunteer = ({ volunteeringInfo, currentIndex }) => {
         //     currentExpInfo.endDate = value;
         //   }
         //   break;
-        case 'summary':
+        case "summary":
           currentExpInfo.summary = value;
           break;
         default:
@@ -44,7 +45,7 @@ const Volunteer = ({ volunteeringInfo, currentIndex }) => {
 
   const onSummaryChange = useCallback(
     (htmlOutput) => {
-      onChangeHandler('summary', htmlOutput);
+      onChangeHandler("summary", htmlOutput);
     },
     [onChangeHandler]
   );
@@ -57,13 +58,13 @@ const Volunteer = ({ volunteeringInfo, currentIndex }) => {
         value={volunteeringInfo.organization}
         onChange={(e) => {
           const value = e.target.value;
-          onChangeHandler('organisation', value);
+          onChangeHandler("organisation", value);
         }}
         autoComplete="off"
         fullWidth
         required
         autoFocus
-        sx={{ marginBottom: '26px' }}
+        sx={{ marginBottom: "26px" }}
       />
       <TextField
         label="Role"
@@ -71,12 +72,12 @@ const Volunteer = ({ volunteeringInfo, currentIndex }) => {
         value={volunteeringInfo.position}
         onChange={(e) => {
           const value = e.target.value;
-          onChangeHandler('role', value);
+          onChangeHandler("role", value);
         }}
         autoComplete="off"
         fullWidth
         required
-        sx={{ marginBottom: '26px' }}
+        sx={{ marginBottom: "26px" }}
       />
       {/* <DatePicker
         label="Start date"
@@ -93,7 +94,7 @@ const Volunteer = ({ volunteeringInfo, currentIndex }) => {
         label="I currently volunteer here"
         value={volunteeringInfo.isVolunteeringNow ?? false}
         onChange={(newValue) => {
-          onChangeHandler('isVolunteeringNow', newValue);
+          onChangeHandler("isVolunteeringNow", newValue);
         }}
       />
       {/* <DatePicker
