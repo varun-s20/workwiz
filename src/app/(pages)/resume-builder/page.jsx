@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import BuilderLayout from "../resume-builder/modules/builder/BuilderLayout";
+import BuilderLayout from "../../resume/modules/builder/BuilderLayout";
 
 const BuilderPage = () => {
   return (

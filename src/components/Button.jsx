@@ -17,14 +17,14 @@ export const ButtonComponent = ({ buttonText }) => {
           transition: "background-color 0.7s easeInOut, color 0.7s easeInOut",
         },
       }}
-      className="border-2 border-white rounded-full p-2 text-sm "
+      className="border-2 border-white rounded-full p-2 text-sm"
     >
       <span className="mx-2">{buttonText}</span>
       <Box
         as="span"
         display="flex"
         alignItems="center"
-        justifycontent="center"
+        justifyContent="center"
         bg="white"
         color="black"
         width="28px"

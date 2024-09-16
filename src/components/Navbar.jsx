@@ -28,10 +28,10 @@ const Navbar = () => {
             </li>
             <li>
               <a
-                href="#"
+                href="/portal"
                 className="block py-3 px-4 text-white rounded md:p-0 hover:text-red-600"
               >
-                About
+                Dashboard
               </a>
             </li>
             <li>

@@ -57,7 +57,7 @@ export const projects = [
     title: "Build Your Resume",
     description:
       "Easily create and customize professional resumes with guided prompts and a range of templates.",
-    link: "/builder",
+    link: "/resume-builder",
   },
   {
     title: "WorkWiz 4",

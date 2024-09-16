@@ -36,7 +36,7 @@
     "src/app/layout.jsx",
     "src/lib/utils.js",
     ".next/types/**/*.ts"
-, "src/resume-builder/stores/volunteering.js", "src/resume-builder/pages/index.tsx"  ],
+, "src/resume/stores/volunteering.js", "src/resume/pages/index.tsx"  ],
   "exclude": [
     "node_modules"
   ]
