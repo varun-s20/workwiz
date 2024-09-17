@@ -1,9 +1,11 @@
 import React from 'react'
 import DashboardNavbar from './_components/DashboardNavbar'
 import {DashboardSidebar} from './_components/DashboardSidebar'
+import { ChakraProvider } from '@chakra-ui/react'
 
 const DashboardLayout = ({children}: {children: React.ReactNode}) => {
   return (
+    <ChakraProvider>
     <div className='h-full'>
         {/* header  */}
         <header>
@@ -15,10 +17,11 @@ const DashboardLayout = ({children}: {children: React.ReactNode}) => {
             <div>
                 <DashboardSidebar />
             </div>
-            <main className='p-10'>{children}</main>
+            <main className='w-full'>{children}</main>
         </div>
 
     </div>
+    </ChakraProvider>
   )
 }
 

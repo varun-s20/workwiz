@@ -1,6 +1,7 @@
 import { ClerkProvider } from "@clerk/nextjs";
 import { Poppins } from "next/font/google";
 import "./globals.css";
+import { ChakraProvider } from "@chakra-ui/react";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -14,10 +15,11 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <ClerkProvider>
-      <html lang="en">
-        <body className={poppins.className}>{children}</body>
-      </html>
-    </ClerkProvider>
+    
+      <ClerkProvider>
+        <html lang="en">
+          <body className={poppins.className}>{children}</body>
+        </html>
+      </ClerkProvider>
   );
 }
