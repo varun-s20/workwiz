@@ -8,6 +8,7 @@ import { IoIosArrowRoundBack } from "react-icons/io";
 import JobPublish from "./_components/JobPublish";
 import {Banner} from "../../../../../../components/ui/banner"
 import {TitleForm} from "./_components/TitleForm"
+import {ImageForm} from "./_components/ImageForm"
 import {CategoryForm} from "./_components/CategoryForm"
 import {IconsBadge} from "../../../../../../components/IconsBadge"
 import { LayoutDashboard } from 'lucide-react';
@@ -100,6 +101,9 @@ const JobDetailsPage = async ({params}: {params : {jobId :string}}) => {
             label: category.name,
             value: category.id
         }))} />
+
+        {/* cover image  */}
+        <ImageForm initialData={job} jobId={job.id} />
     </div>
   )
 }
