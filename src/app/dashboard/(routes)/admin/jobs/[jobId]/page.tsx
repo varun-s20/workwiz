@@ -7,6 +7,10 @@ import React from 'react'
 import { IoIosArrowRoundBack } from "react-icons/io";
 import JobPublish from "./_components/JobPublish";
 import {Banner} from "../../../../../../components/ui/banner"
+import {TitleForm} from "./_components/TitleForm"
+import {CategoryForm} from "./_components/CategoryForm"
+import {IconsBadge} from "../../../../../../components/IconsBadge"
+import { LayoutDashboard } from 'lucide-react';
 
 const JobDetailsPage = async ({params}: {params : {jobId :string}}) => {
 
@@ -29,11 +33,15 @@ const JobDetailsPage = async ({params}: {params : {jobId :string}}) => {
         }
     })
 
+    const categories = await db.category.findMany({
+        orderBy: {name: "asc"}
+    })
+
     if(!job){
         return redirect("/dashboard/admin/jobs");
     }
     
-    const requiredFields = [job.title, job.description, job.imageUrl];
+    const requiredFields = [job.title, job.description, job.imageUrl, job.categoryId];
 
     const totalFields = requiredFields.length;
     const completedFields = requiredFields.filter(Boolean).length;
@@ -69,12 +77,29 @@ const JobDetailsPage = async ({params}: {params : {jobId :string}}) => {
             />
 
         </div>
-            {!job.isPublished && 
-                <Banner
-                    variant="warning"
-                    label="This job is unpublished. It will not be visible in the jobs list."
-                />
-            }
+        {!job.isPublished && 
+            <Banner
+                variant="warning"
+                label="This job is unpublished. It will not be visible in the jobs list."
+            />
+        }
+
+        {/* container layout  */}
+        <div className='grid grid-cols-1 md:grid-cols-2 gap-6 mt-16'>
+            <div className='flex items-center gap-x-2'>
+                <IconsBadge icon={LayoutDashboard} />
+                <h2 className='text-lg text-slate-900'>Customize your job</h2>
+            </div>
+        </div>
+
+        {/* title form */}
+        <TitleForm initialData={job} jobId={job.id} />
+
+        {/* category form  */}
+        <CategoryForm initialData={job} jobId={job.id} options={categories.map((category) => ({
+            label: category.name,
+            value: category.id
+        }))} />
     </div>
   )
 }
