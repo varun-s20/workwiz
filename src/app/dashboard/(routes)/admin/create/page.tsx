@@ -44,12 +44,12 @@ const JobCreatePage = () => {
       try {
           const response = await axios.post("/api/jobs", values);
           console.log(response);
-          toast({
+          ({
             title: 'Job Created',
             position: 'top',
             status: 'success',
             duration: 3000,
-            isClosable: true,
+            isCtoastlosable: true,
           })
           router.push(`/dashboard/admin/jobs/${response.data.id}`)
       } catch (error) {

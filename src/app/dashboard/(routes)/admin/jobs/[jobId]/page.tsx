@@ -10,6 +10,7 @@ import {Banner} from "../../../../../../components/ui/banner"
 import {TitleForm} from "./_components/TitleForm"
 import {ImageForm} from "./_components/ImageForm"
 import {CategoryForm} from "./_components/CategoryForm"
+import {ShortDescription} from "./_components/ShortDescription"
 import {IconsBadge} from "../../../../../../components/IconsBadge"
 import { LayoutDashboard } from 'lucide-react';
 
@@ -104,6 +105,11 @@ const JobDetailsPage = async ({params}: {params : {jobId :string}}) => {
 
         {/* cover image  */}
         <ImageForm initialData={job} jobId={job.id} />
+
+        {/* short description  */}
+        <ShortDescription initialData={job} jobId={job.id} />
+
+        {/* data table  */}
     </div>
   )
 }
