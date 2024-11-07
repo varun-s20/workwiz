@@ -1,0 +1,28 @@
+import { HTMLRenderer } from '../../../helpers/common/components/HTMLRenderer';
+import { ProfileImage } from '../../../helpers/common/components/ProfileImage';
+import React from 'react';
+import styles from './about.module.css'; // Ensure the correct relative path
+
+
+
+export default function AboutMe({
+  summary,
+  profileImage,
+}: {
+  summary: string;
+  profileImage: string;
+}) {
+  return (
+    <div className="text-[1em]">
+      {profileImage.length !== 0 && (
+        <ProfileImage
+          src={profileImage}
+          width={'80px'}
+          height={'80px'}
+          imageWrapperClassname={`float-left mr-3 mb-1 ${styles.imageWrapShape}`}
+        />
+      )}
+      <HTMLRenderer htmlString={summary} />
+    </div>
+  );
+}

@@ -1,0 +1,36 @@
+import React, { useState } from 'react';
+
+import DataHeaders from './components/EditHeaders';
+import EditSection from './components/EditSection';
+import ErrorBoundary from '../../../helpers/common/components/ErrorBoundary';
+import { OutlinedButton } from '../../..//helpers/common/atoms/Buttons';
+import { headers } from '../../..//helpers/constants/editor-data';
+import { resetResumeStore } from '../../..//stores/useResumeStore';
+
+const EditorLayout = () => {
+  const [link, setLink] = useState('');
+  const section = headers[link];
+
+  const linkClickHandler = (link: string) => {
+    setLink(link);
+  };
+
+  const displayElement = link ? (
+    <EditSection section={section} onLinkClick={linkClickHandler} />
+  ) : (
+    <DataHeaders onLinkClick={linkClickHandler} />
+  );
+
+  return (
+    <ErrorBoundary>
+      <div className="bg-[#0b0b0f] h-full text-white p-8 overflow-auto relative no-scrollbar shadow-xl">
+        {displayElement}
+        <div className="mt-8">
+          <OutlinedButton onClick={resetResumeStore}>Reset all edits</OutlinedButton>
+        </div>
+      </div>
+    </ErrorBoundary>
+  );
+};
+
+export default EditorLayout;

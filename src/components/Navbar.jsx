@@ -2,7 +2,6 @@
 import Link from "next/link";
 import React from "react";
 import { Box, Image } from "@chakra-ui/react";
-import { FiArrowUpRight } from "react-icons/fi";
 import { ButtonComponent } from "./Button";
 
 const Navbar = () => {
@@ -28,10 +27,10 @@ const Navbar = () => {
             </li>
             <li>
               <a
-                href="#"
+                href="/dashboard"
                 className="block py-3 px-4 text-white rounded md:p-0 hover:text-red-600"
               >
-                About
+                Dashboard
               </a>
             </li>
             <li>

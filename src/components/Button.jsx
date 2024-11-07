@@ -1,7 +1,7 @@
 import { Box, Button, Image } from "@chakra-ui/react";
 import { FiArrowUpRight } from "react-icons/fi";
 
-export const ButtonComponent = ({buttonText}) => {
+export const ButtonComponent = ({ buttonText }) => {
   return (
     <Button
       rounded={"full"}
@@ -17,7 +17,7 @@ export const ButtonComponent = ({buttonText}) => {
           transition: "background-color 0.7s easeInOut, color 0.7s easeInOut",
         },
       }}
-      className="border-2 border-white rounded-full p-2 text-sm "
+      className="border-2 border-white rounded-full p-2 text-sm"
     >
       <span className="mx-2">{buttonText}</span>
       <Box

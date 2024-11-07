@@ -34,9 +34,9 @@
     ".next/types/**/*.js",
     "src/app/page.jsx",
     "src/app/layout.jsx",
-    "src/lib/utils.js",
+    "src/lib/utils.ts",
     ".next/types/**/*.ts"
-, "src/resume-builder/stores/volunteering.js", "src/resume-builder/pages/index.tsx"  ],
+, "src/resume/stores/volunteering.js", "src/resume/pages/index.tsx", "src/app/dashboard/(routes)/admin/jobs/[jobId]/page.tsx", "src/app/dashboard/(routes)/admin/jobs/page.tsx", "src/app/dashboard/(routes)/page.tsx"  ],
   "exclude": [
     "node_modules"
   ]
