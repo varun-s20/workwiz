@@ -1,9 +1,9 @@
 "use client";
 import React, { useState } from "react";
-import  {Label}  from "@/components/ui/label";
-import {Button}  from "@/components/ui/button";
-import  {Input}  from "@/components/ui/input";
-import { cn } from "@/lib/utils";
+import  {Label}  from "../../../../../../components/ui/label";
+import {Button}  from "../../../../../../components/ui/button";
+import  {Input}  from "../../../../../../components/ui/input";
+import { cn } from "../../../../../../lib/utils";
 import {zodResolver} from "@hookform/resolvers/zod";
 import {z} from "zod";
 import {
@@ -12,7 +12,7 @@ import {
   IconBrandOnlyfans,
 } from "@tabler/icons-react";
 import { useForm } from 'react-hook-form';
-import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
+import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from "../../../../../../components/ui/form";
 import { useToast } from '@chakra-ui/react'
 import Link from "next/link";
 import axios from "axios";

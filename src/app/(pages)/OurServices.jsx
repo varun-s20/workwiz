@@ -42,16 +42,16 @@ export function CardHoverEffectDemo() {
 
 export const projects = [
   {
-    title: "WorkWiz 1",
+    title: "AI-Powered Mock Interview",
     description:
-      "A technology company that builds economic infrastructure for the internet.",
-    link: "",
+      "Enhance your interview skills with realistic AI mock interviews, offering personalized feedback, detailed reports, and expert-level practice.",
+    link: "http://localhost:3001",
   },
   {
-    title: "WorkWiz 2",
+    title: "Job Portals",
     description:
-      "A streaming service that offers a wide variety of award-winning TV shows, movies, anime, documentaries, and more on thousands of internet-connected devices.",
-    link: "",
+      "With separate Employer and Candidate Portals, our platform streamlines the job process, offering employers tools to assess candidates.",
+    link: "/dashboard",
   },
   {
     title: "Build Your Resume",
@@ -60,21 +60,21 @@ export const projects = [
     link: "/resume-builder",
   },
   {
-    title: "WorkWiz 4",
+    title: "Resume Analysis and Parsing",
     description:
-      "A technology company that focuses on building products that advance Facebook's mission of bringing the world closer together.",
+      "Automatically parse and analyze your resume to extract key skills, experience, and qualifications, providing insights to improve your job application effectiveness.",
     link: "",
   },
   {
-    title: "WorkWiz 5",
+    title: "Smart Job Recommendations",
     description:
-      "A multinational technology company focusing on e-commerce, cloud computing, digital streaming, and artificial intelligence.",
+      "Get personalized job recommendations based on your resume and search history, matching you with roles that fit your skills and career goals.",
     link: "",
   },
   {
-    title: "WorkWiz 6",
+    title: "Seamless Job Application Integration",
     description:
-      "A multinational technology company that develops, manufactures, licenses, supports, and sells computer software, consumer electronics, personal computers, and related services.",
+      "Apply directly to jobs through integrations with LinkedIn and other platforms, simplifying the application process with one-click submissions.",
     link: "",
   },
 ];

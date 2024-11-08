@@ -4,10 +4,10 @@ import { Box, Button } from "@chakra-ui/react";
 import { FaPlus } from "react-icons/fa6";
 import { auth } from "@clerk/nextjs/server";
 import { redirect } from "next/navigation";
-import { db } from "@/lib/db";
+import { db } from "../../../../../lib/db";
 import {columns, CompanyColumns} from "./_components/columns"
 import { format } from "date-fns";
-import { DataTable } from "@/components/ui/data-table";
+import { DataTable } from "../../../../../components/ui/data-table";
 
 const CompaniesOverviewPage = async() => {
 

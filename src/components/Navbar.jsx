@@ -8,7 +8,7 @@ const Navbar = () => {
   return (
     <nav className="bg-[#0b0b0f] sticky w-full z-20 top-0 start-0 border-b border-gray-600 shadow-gray-800 shadow-lg">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-        <Link href="" className="flex items-center space-x-3">
+        <Link href="/" className="flex items-center space-x-3">
           <Image src="/workwiz.png" className="h-[54px]" alt="WorkWiz Logo" />
         </Link>
         <div className="flex md:order-2 space-x-3 md:space-x-0 ">
