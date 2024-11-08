@@ -1,6 +1,8 @@
 import {NextResponse} from "next/server";
 import {auth} from "@clerk/nextjs/server"
 import { db } from "../../../../lib/db";
+import { storage } from "@/config/firebase.config";
+import { deleteObject, ref } from "firebase/storage";
 
 export const PATCH = async (req : Request, {params} : {params: {jobId: string}}) =>{
     try {

@@ -1,9 +1,9 @@
 "use client";
 import React, { useState } from "react";
-import  {Label}  from "../../../../../components/ui/label";
-import {Button}  from "../../../../../components/ui/button";
-import  {Input}  from "../../../../../components/ui/input";
-import { cn } from "../../../../../lib/utils";
+import  {Label}  from "@/components/ui/label";
+import {Button}  from "@/components/ui/button";
+import  {Input}  from "@/components/ui/input";
+import { cn } from "@/lib/utils";
 import {zodResolver} from "@hookform/resolvers/zod";
 import {z} from "zod";
 import {
@@ -12,7 +12,7 @@ import {
   IconBrandOnlyfans,
 } from "@tabler/icons-react";
 import { useForm } from 'react-hook-form';
-import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from "../../../../../components/ui/form";
+import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { useToast } from '@chakra-ui/react'
 import Link from "next/link";
 import axios from "axios";
@@ -21,17 +21,17 @@ import { useRouter } from "next/navigation";
 
 
 const formSchema = z.object({
-        title : z.string().min(1, {message: "Job Title cannot be empty!"})
+        name : z.string().min(1, {message: "Company name cannot be empty!"})
 });
 
     
-const JobCreatePage = () => {
+const CompanyCreatePage = () => {
 
     const router = useRouter();
     const form = useForm<z.infer<typeof formSchema>>({
         resolver: zodResolver(formSchema),
         defaultValues:{
-            title: "",
+            name: "",
         },
     })
 
@@ -51,6 +51,7 @@ const JobCreatePage = () => {
             duration: 3000,
             isClosable: true,
           })
+          
           router.push(`/dashboard/admin/jobs/${response.data.id}`)
       } catch (error) {
             console.log((error as Error)?.message)
@@ -65,24 +66,24 @@ const JobCreatePage = () => {
         Welcome to WorkWiz
       </h2>
       <p className="text-neutral-600 text-sm max-w-sm mt-2 dark:text-neutral-300">
-        What would you like to name your job? Don&apos;t worry you can change it later!
+        What would you like to name your company? Don&apos;t worry you can change it later!
       </p>
 
       <Form {...form}>
       <form className="space-y-8 my-8" onSubmit={form.handleSubmit(onSubmit)}>
         <FormField 
             control={form.control} 
-            name="title" 
+            name="name" 
             render={({field}) => {
                 return <FormItem>
                     <FormLabel className="text-lg">
-                        Job Title
+                        Company name
                     </FormLabel>
                     <FormControl>
-                        <Input disabled={isSubmitting} placeholder="e.g. Full Stack Developer" {...field}  />
+                        <Input disabled={isSubmitting} placeholder="e.g. Google Studios" {...field}  />
                     </FormControl>
                     <FormMessage className="text-red-800"/> 
-                    <FormDescription className="text-gray-600">Role of this Job</FormDescription>
+                    <FormDescription className="text-gray-600">Name of the company</FormDescription>
                 </FormItem>;
             }}
         />
@@ -104,4 +105,4 @@ const JobCreatePage = () => {
 }
 
 
-export default JobCreatePage;
+export default CompanyCreatePage;

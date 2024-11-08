@@ -9,36 +9,72 @@ generator client {
 }
 
 datasource db {
-  provider = "mongodb"
-  url      = env("DATABASE_URL")
+  provider     = "mongodb"
+  url          = env("DATABASE_URL")
   relationMode = "prisma"
 }
 
-model Job{
-  id String @id @default(auto()) @map("_id") @db.ObjectId
-  userId String
-  title String
-  description String?
+model Job {
+  id                String       @id @default(auto()) @map("_id") @db.ObjectId
+  userId            String
+  title             String
+  description       String?
   short_description String?
-  imageUrl String?
-  isPublished Boolean @default(false)
-  tags String[]
-  savedUsers String[]
-  shiftTimimg String?
-  hourlyRate String?
+  imageUrl          String?
+  isPublished       Boolean      @default(false)
+  tags              String[]
+  savedUsers        String[]
+  shiftTimimg       String?
+  hourlyRate        String?
   yearsOfExperience String?
-  workMode String?
-  categoryId String? @db.ObjectId
-  category Category? @relation(fields: [categoryId], references: [id])
-  createdAt DateTime @default(now())
-  updatedAt DateTime @default(now())
+  workMode          String?
+  categoryId        String?      @db.ObjectId
+  category          Category?    @relation(fields: [categoryId], references: [id])
+  companyId         String?      @db.ObjectId
+  company           Company?     @relation(fields: [companyId], references: [id])
+  createdAt         DateTime     @default(now())
+  updatedAt         DateTime     @default(now())
+  attachments       Attachment[]
+
   @@index([categoryId])
+  @@index([companyId])
 }
 
-model Category{
-  id String @id @default(auto()) @map("_id") @db.ObjectId
-  name String @unique
-  jobs Job[]
+model Company {
+  id             String   @id @default(auto()) @map("_id") @db.ObjectId
+  userId         String
+  name           String
+  description    String?
+  logo           String?
+  coverImage     String?
+  mail           String?
+  website        String?
+  LinkedIn       String?
+  address_line_1 String?
+  address_line_2 String?
+  city           String?
+  state          String?
+  zipcode        String?
+  jobs           Job[]
+  followers      String[]
+  overview       String?
+  whyJoinUs      String?
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @default(now())
+}
+
+model Attachment {
+  id String @id @default(auto()) @map("_id") @db.ObjectId 
+  url String
+  name  String
+  jobId String? @db.ObjectId
+  job   Job?    @relation(fields: [jobId], references: [id])
+}
+
+model Category {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  name      String   @unique
+  jobs      Job[]
   createdAt DateTime @default(now())
   updatedAt DateTime @default(now())
 }
